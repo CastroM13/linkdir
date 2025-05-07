@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo, useRef, useEffect } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import {
   Dialog,
   DialogTitle,
@@ -16,6 +16,7 @@ import {
 import * as Icons from '@mui/icons-material';
 import { Search as SearchIcon } from '@mui/icons-material';
 import { FixedSizeGrid } from 'react-window';
+import type { MaterialIcon } from '../types';
 
 interface Props {
   open: boolean;
@@ -127,7 +128,7 @@ export const IconSelector = ({ open, onClose, onSelect, currentIcon }: Props) =>
   }, [tab, search]);
 
   const renderIcon = useCallback((iconName: string) => {
-    const Icon = (Icons as any)[iconName];
+    const Icon = Icons[iconName as MaterialIcon];
     if (!Icon) return null;
     return <Icon />;
   }, []);

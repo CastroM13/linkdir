@@ -36,6 +36,9 @@ jobs:
       - name: Create .nojekyll file
         run: touch dist/.nojekyll
 
+      - name: Copy .htaccess
+        run: cp public/.htaccess dist/
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 

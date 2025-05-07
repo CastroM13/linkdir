@@ -1,0 +1,10 @@
+AddType application/javascript .js
+AddType text/css .css
+
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+</IfModule>
+
+<FilesMatch "\.(js|css)$">
+    Header set Content-Type "application/javascript"
+</FilesMatch> 

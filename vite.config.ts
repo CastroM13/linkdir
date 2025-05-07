@@ -9,10 +9,23 @@ export default defineConfig({
     assetsDir: 'assets',
     rollupOptions: {
       output: {
-        assetFileNames: 'assets/[name].[hash][extname]',
+        assetFileNames: (assetInfo) => {
+          if (!assetInfo.name) return 'assets/[name].[hash][extname]';
+          const info = assetInfo.name.split('.');
+          const ext = info[info.length - 1];
+          if (/\.(css)$/.test(assetInfo.name)) {
+            return `assets/[name].[hash][extname]`;
+          }
+          return `assets/[name].[hash][extname]`;
+        },
         chunkFileNames: 'assets/[name].[hash].js',
         entryFileNames: 'assets/[name].[hash].js',
       },
+    },
+  },
+  server: {
+    headers: {
+      'Content-Type': 'application/javascript',
     },
   },
 })

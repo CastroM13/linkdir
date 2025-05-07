@@ -63,6 +63,16 @@ yarn build
 
 The build artifacts will be stored in the `dist/` directory.
 
+### GitHub Pages Deployment
+
+The project is automatically deployed to GitHub Pages when changes are pushed to the `main` branch. The deployment process:
+
+1. Builds the project using Vite
+2. Deploys the built files to GitHub Pages
+3. The site will be available at `https://yourusername.github.io/LinkDir/`
+
+You can also manually trigger the deployment from the Actions tab in your GitHub repository.
+
 ## Usage
 
 - **Adding Items**: Right-click on a folder to add new links or subfolders

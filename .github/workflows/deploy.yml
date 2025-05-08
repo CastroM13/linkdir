@@ -39,6 +39,13 @@ jobs:
       - name: Copy .htaccess
         run: cp public/.htaccess dist/
 
+      - name: Add MIME type headers
+        run: |
+          echo '<IfModule mod_headers.c>' >> dist/.htaccess
+          echo '    Header set X-Content-Type-Options "nosniff"' >> dist/.htaccess
+          echo '    Header set Content-Type "application/javascript" env=REDIRECT_STATUS' >> dist/.htaccess
+          echo '</IfModule>' >> dist/.htaccess
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 

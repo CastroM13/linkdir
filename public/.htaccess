@@ -5,6 +5,10 @@ AddType text/css .css
     Header set X-Content-Type-Options "nosniff"
 </IfModule>
 
-<FilesMatch "\.(js|css)$">
+<FilesMatch "\.js$">
     Header set Content-Type "application/javascript"
+</FilesMatch>
+
+<FilesMatch "\.css$">
+    Header set Content-Type "text/css"
 </FilesMatch> 
